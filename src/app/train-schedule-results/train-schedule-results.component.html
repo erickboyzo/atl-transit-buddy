@@ -1,0 +1,34 @@
+<div layout-gt-xs="row" layout-margin>
+  <div flex-gt-xs="20">
+  </div>
+  <div flex-gt-xs="60">
+    <form class="example-form">
+      <mat-form-field>
+        <input type="text" placeholder="Select Station" matInput
+               [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<div class="results">
+  <div layout-gt-xs="row" ngClass="{ 'padding-left-30': i !== 0}" *ngFor="let item of scheduleResults; let idx = index "
+       layout-margin>
+    <div flex-gt-xs="80" flex-offset-gt-xs="20">
+      <app-schedule-result-card [schedule]="item" [firstArrival]="idx ===0" [refreshDate]="refreshDateTimeStamp"></app-schedule-result-card>
+    </div>
+    <div flex-gt-xs="20"></div>
+  </div>
+  <app-no-results *ngIf="scheduleResults.length ===0"></app-no-results>
+</div>
+
+<span class="done" *ngIf="scheduleResults.length > 0">
+    <button mat-fab (click)="getSchedule()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </span>
