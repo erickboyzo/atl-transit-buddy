@@ -4,7 +4,25 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
+@import '../node_modules/font-awesome/css/font-awesome.css';
 // Plus imports for other components in your app.
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  background: #eeeeee!important;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
 
 // Custom typography
 $custom-typography: mat-typography-config(
