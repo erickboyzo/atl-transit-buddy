@@ -6,8 +6,8 @@ import {filter, uniqBy, map} from 'lodash';
 @Injectable()
 export class TrainScheduleService {
 
-  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-  const url = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals?apikey=e1eccb32-bdd5-4c5a-9044-d353e982f818';
+  private proxyurl = 'https://cors-anywhere.herokuapp.com/';
+  private  url = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals?apikey=e1eccb32-bdd5-4c5a-9044-d353e982f818';
 
   constructor(private http: HttpClient) { }
 
