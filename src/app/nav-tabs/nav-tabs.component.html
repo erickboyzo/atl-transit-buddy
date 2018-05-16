@@ -1,0 +1,25 @@
+<mat-tab-group>
+  <mat-tab label="MARTA North & South Trains">
+    <ng-template mat-tab-label>
+      <h3>
+        <i class="fa fa-arrows-v"></i> MARTA North & South Trains</h3>
+    </ng-template>
+    <app-train-schedule-results [parsedTrainStationList]="northSouthBound"
+                                [directions]="northSouth"></app-train-schedule-results>
+  </mat-tab>
+  <mat-tab label="East/West Bound Train">
+    <ng-template mat-tab-label>
+      <h3>
+        <i class="fa fa-arrows-h"></i> MARTA East & West Trains</h3>
+    </ng-template>
+    <app-train-schedule-results [parsedTrainStationList]="eastWestBound"
+                                [directions]="eastWest"></app-train-schedule-results>
+  </mat-tab>
+
+  <mat-tab label="East/West Bound Train" disabled>
+    <ng-template mat-tab-label>
+      <h3>
+        <i class="fa fa-bus"></i> MARTA Buses</h3>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
