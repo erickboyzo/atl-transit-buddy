@@ -27,8 +27,8 @@
   <app-no-results *ngIf="scheduleResults.length ===0"></app-no-results>
 </div>
 
-<span class="done" *ngIf="scheduleResults.length > 0">
-    <button mat-fab (click)="getSchedule()">
+<span class="refresh" *ngIf="scheduleResults.length > 0">
+    <button mat-fab color="primary" (click)="getSchedule(true)">
       <mat-icon>refresh</mat-icon>
     </button>
   </span>

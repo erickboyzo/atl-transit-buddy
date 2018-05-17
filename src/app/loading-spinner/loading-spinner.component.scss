@@ -1,0 +1,16 @@
+.loader-overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 1000;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+mat-progress-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

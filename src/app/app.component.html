@@ -1,15 +1,7 @@
-<!--<td-layout>-->
-<!--<app-nav-tabs></app-nav-tabs>-->
-<!--<app-footer></app-footer>-->
-<!--</td-layout>-->
-
+<app-loading-spinner *ngIf="showLoadingSpinner"></app-loading-spinner>
 <div>
-  <mat-toolbar color="primary">
-    <span><i class="fa fa-subway fa-2x" aria-hidden="true"></i></span>
-    <h1>  Atlanta Transit Helper</h1>
-  </mat-toolbar>
-
-  <div class="content">
+  <app-header></app-header>
+  <main class="app-content">
     <app-nav-tabs></app-nav-tabs>
-  </div>
+  </main>
 </div>

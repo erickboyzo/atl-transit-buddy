@@ -1,23 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {
   MatButtonModule, MatCardModule, MatDividerModule, MatIconModule, MatInputModule, MatListModule,
-  MatToolbarModule, MatStepperModule, MatTabsModule, MatAutocompleteModule, MatMenuModule
+  MatToolbarModule, MatStepperModule, MatTabsModule, MatAutocompleteModule, MatMenuModule, MatProgressSpinnerModule
 } from '@angular/material';
-import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
-import { FooterComponent } from './footer/footer.component';
-import { TrainScheduleResultsComponent } from './train-schedule-results/train-schedule-results.component';
-import { ScheduleResultCardComponent } from './train-schedule-results/schedule-result-card/schedule-result-card.component';
+import {NavTabsComponent} from './nav-tabs/nav-tabs.component';
+import {FooterComponent} from './footer/footer.component';
+import {TrainScheduleResultsComponent} from './train-schedule-results/train-schedule-results.component';
+import {ScheduleResultCardComponent} from './train-schedule-results/schedule-result-card/schedule-result-card.component';
 import {TrainScheduleService} from './train-schedule.service';
-import { NoResultsComponent } from './train-schedule-results/no-results/no-results.component';
+import {NoResultsComponent} from './train-schedule-results/no-results/no-results.component';
+import {HeaderComponent} from './header/header.component';
+import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
+import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { NoResultsComponent } from './train-schedule-results/no-results/no-resul
     FooterComponent,
     TrainScheduleResultsComponent,
     ScheduleResultCardComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    HeaderComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     // angular modules
@@ -49,8 +54,10 @@ import { NoResultsComponent } from './train-schedule-results/no-results/no-resul
     MatTabsModule,
     MatAutocompleteModule,
     MatMenuModule,
+    MatProgressSpinnerModule
   ],
-  providers: [TrainScheduleService],
+  providers: [TrainScheduleService, LoadingSpinnerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

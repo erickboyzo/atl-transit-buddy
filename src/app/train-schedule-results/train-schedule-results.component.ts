@@ -3,6 +3,7 @@ import {map, startWith} from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {TrainScheduleService} from '../train-schedule.service';
+import {LoadingSpinnerService} from '../loading-spinner/loading-spinner.service';
 
 @Component({
   selector: 'app-train-schedule-results',
@@ -25,7 +26,8 @@ export class TrainScheduleResultsComponent implements OnInit {
 
   @Input() directions: any;
 
-  constructor(private trainScheduleService: TrainScheduleService) {
+
+  constructor(private trainScheduleService: TrainScheduleService, private loaderService: LoadingSpinnerService) {
   }
 
   ngOnInit() {
@@ -35,17 +37,21 @@ export class TrainScheduleResultsComponent implements OnInit {
     );
   }
 
-  getSchedule() {
+  getSchedule(showSpinner = false) {
     window.scroll(0, 0);
+    if (showSpinner) {
+      this.loaderService.show();
+    }
     this.trainScheduleService.getTrainSchedule()
       .subscribe(
         data => {
           this.refreshDateTimeStamp = new Date().toLocaleString('en-US');
-          console.log(this.refreshDateTimeStamp);
           this.scheduleResults = this.trainScheduleService.filterSchedule(this.directions.primary, this.directions.secondary, data, this.currentSelection);
+          this.loaderService.hide();
         },
         error => {
           console.log(error);
+          this.loaderService.hide();
         });
   }
 
@@ -55,7 +61,7 @@ export class TrainScheduleResultsComponent implements OnInit {
 
   onSelectionChanged(data) {
     this.currentSelection = data.option.value;
-    this.getSchedule();
+    this.getSchedule(true);
   }
 
 }
