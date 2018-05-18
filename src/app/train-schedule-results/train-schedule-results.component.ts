@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {map, startWith} from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
-import {TrainScheduleService} from '../train-schedule.service';
+import {TrainScheduleService} from './train-schedule.service';
 import {LoadingSpinnerService} from '../loading-spinner/loading-spinner.service';
+import {TrainSchedule} from './model/train-schedule';
 
 @Component({
   selector: 'app-train-schedule-results',
@@ -14,20 +15,19 @@ export class TrainScheduleResultsComponent implements OnInit {
   myControl: FormControl = new FormControl();
   options: string[] = [];
   filteredOptions: Observable<string[]>;
-  scheduleResults: any[] = [];
+  scheduleResults: TrainSchedule[] = [];
   currentSelection: string = null;
   refreshDateTimeStamp: string = null;
-
+  inputType = 'chip';
 
   @Input()
   set parsedTrainStationList(data) {
-    this.options = data;
+    this.options = data.sort();
   }
-
   @Input() directions: any;
 
-
-  constructor(private trainScheduleService: TrainScheduleService, private loaderService: LoadingSpinnerService) {
+  constructor(private trainScheduleService: TrainScheduleService,
+              private loaderService: LoadingSpinnerService) {
   }
 
   ngOnInit() {
@@ -46,8 +46,10 @@ export class TrainScheduleResultsComponent implements OnInit {
       .subscribe(
         data => {
           this.refreshDateTimeStamp = new Date().toLocaleString('en-US');
-          this.scheduleResults = this.trainScheduleService.filterSchedule(this.directions.primary, this.directions.secondary, data, this.currentSelection);
+          this.scheduleResults = this.trainScheduleService.filterSchedule(
+            this.directions.primary, this.directions.secondary, data, this.currentSelection);
           this.loaderService.hide();
+          this.scrollToResults();
         },
         error => {
           console.log(error);
@@ -60,8 +62,21 @@ export class TrainScheduleResultsComponent implements OnInit {
   }
 
   onSelectionChanged(data) {
-    this.currentSelection = data.option.value;
     this.getSchedule(true);
+  }
+
+  onToggleChange(data) {
+    this.inputType = data.value;
+  }
+
+  onTrainSelection(train) {
+    this.currentSelection = train;
+    this.getSchedule(true);
+  }
+
+  private scrollToResults() {
+    const resultsList = document.getElementById('results');
+    resultsList.scrollIntoView();
   }
 
 }

@@ -1,12 +1,18 @@
 .mat-form-field {
   width: 100%;
 }
-.padding-left-30{
+
+.padding-left-30 {
   padding-left: 30px;
 }
-[layout-gt-xs="row"]:not(:first-child){
+
+[layout-gt-xs="row"]:not(:first-child) {
   padding-left: 30px;
 }
-.example-form{
+
+.example-form {
   padding-top: 30px;
+}
+.upcoming{
+  color: #424242;
 }

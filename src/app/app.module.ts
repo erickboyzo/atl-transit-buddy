@@ -10,17 +10,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {
   MatButtonModule, MatCardModule, MatDividerModule, MatIconModule, MatInputModule, MatListModule,
-  MatToolbarModule, MatStepperModule, MatTabsModule, MatAutocompleteModule, MatMenuModule, MatProgressSpinnerModule
+  MatToolbarModule, MatStepperModule, MatTabsModule, MatAutocompleteModule, MatMenuModule, MatProgressSpinnerModule, MatButtonToggleModule, MatChipsModule
 } from '@angular/material';
 import {NavTabsComponent} from './nav-tabs/nav-tabs.component';
 import {FooterComponent} from './footer/footer.component';
 import {TrainScheduleResultsComponent} from './train-schedule-results/train-schedule-results.component';
 import {ScheduleResultCardComponent} from './train-schedule-results/schedule-result-card/schedule-result-card.component';
-import {TrainScheduleService} from './train-schedule.service';
+import {TrainScheduleService} from './train-schedule-results/train-schedule.service';
 import {NoResultsComponent} from './train-schedule-results/no-results/no-results.component';
 import {HeaderComponent} from './header/header.component';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
 import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
+import { TrainChipSelectorComponent } from './train-schedule-results/train-chip-selector/train-chip-selector.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
     ScheduleResultCardComponent,
     NoResultsComponent,
     HeaderComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    TrainChipSelectorComponent
   ],
   imports: [
     // angular modules
@@ -54,7 +56,9 @@ import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
     MatTabsModule,
     MatAutocompleteModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ],
   providers: [TrainScheduleService, LoadingSpinnerService],
   bootstrap: [AppComponent]

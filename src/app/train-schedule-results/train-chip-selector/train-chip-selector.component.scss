@@ -1,0 +1,16 @@
+$chip-margin: 10px 5px 10px 5px;
+
+.mat-chip:not(.mat-basic-chip) {
+  cursor: pointer;
+  margin: $chip-margin;
+}
+
+.mat-chip:not(.mat-basic-chip)+.mat-chip:not(.mat-basic-chip) {
+  margin: $chip-margin;
+}
+
+.mat-chip-list-wrapper {
+  justify-content: space-between;
+}
+
+

@@ -1,26 +1,42 @@
 <div layout-gt-xs="row" layout-margin>
   <div flex-gt-xs="20">
+    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="onToggleChange($event)">
+      <mat-button-toggle value="keyboard" [checked]="inputType === 'keyboard'">
+        <mat-icon>keyboard</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="chip" [checked]="inputType === 'chip'">
+        <mat-icon>view_comfy</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
   <div flex-gt-xs="60">
-    <form class="example-form">
-      <mat-form-field>
-        <input type="text" placeholder="Select Station" matInput
-               [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{ option }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
+    <div *ngIf="inputType === 'keyboard'">
+      <form class="example-form">
+        <mat-form-field>
+          <input type="text" placeholder="Select Station" matInput
+                 [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="currentSelection">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div *ngIf="inputType === 'chip'">
+      <app-train-chip-selector [trainList]="options" [selectedTrain]="currentSelection" (chipSelection)="onTrainSelection($event)"></app-train-chip-selector>
+    </div>
   </div>
 </div>
 
-<div class="results">
+<div id="results" class="results">
   <div layout-gt-xs="row" ngClass="{ 'padding-left-30': i !== 0}" *ngFor="let item of scheduleResults; let idx = index "
        layout-margin>
     <div flex-gt-xs="80" flex-offset-gt-xs="20">
-      <app-schedule-result-card [schedule]="item" [firstArrival]="idx ===0" [refreshDate]="refreshDateTimeStamp"></app-schedule-result-card>
+      <h2 class="most-recent" *ngIf="idx === 0">Current</h2>
+      <h2 class="upcoming" *ngIf="idx === 1">Upcoming</h2>
+      <app-schedule-result-card [schedule]="item" [firstArrival]="idx === 0"
+                                [refreshDate]="refreshDateTimeStamp"></app-schedule-result-card>
     </div>
     <div flex-gt-xs="20"></div>
   </div>

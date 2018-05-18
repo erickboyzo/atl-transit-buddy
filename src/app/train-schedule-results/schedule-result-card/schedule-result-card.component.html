@@ -1,10 +1,9 @@
-<mat-card>
+<mat-card class="mat-elevation-z6">
   <mat-card-header>
     <span class="card-arrow" *ngIf="!firstArrival"><i class="fa fa-caret-left fa-5x" aria-hidden="true"></i></span>
     <h1 class="title"> {{schedule.STATION}}</h1>
   </mat-card-header>
   <mat-card-subtitle> Last updated {{refreshDate}}</mat-card-subtitle>
-
   <mat-card-content>
     <div layout-gt-xs="row" layout-margin>
       <div flex-gt-xs="30"><span><i class="fa {{direction[schedule.DIRECTION]}} fa-5x {{schedule.LINE}}"></i></span>
@@ -12,17 +11,6 @@
       <div flex-gt-xs="30">
         <div><i class="fa fa-subway"></i> Destination</div>
         <h1>{{schedule.DESTINATION}}</h1>
-        <!--{-->
-        <!--"DESTINATION": "Hamilton E Holmes",-->
-        <!--"DIRECTION": "W",-->
-        <!--"EVENT_TIME": "5/16/2018 8:08:20 AM",-->
-        <!--"LINE": "BLUE",-->
-        <!--"NEXT_ARR": "08:11:54 AM",-->
-        <!--"STATION": "EAST LAKE STATION",-->
-        <!--"TRAIN_ID": "105206",-->
-        <!--"WAITING_SECONDS": "186",-->
-        <!--"WAITING_TIME": "2 min"-->
-        <!--}-->
       </div>
       <div flex-gt-xs="30">
         <div><i class="fa fa-hourglass-half"></i> Waiting time</div>

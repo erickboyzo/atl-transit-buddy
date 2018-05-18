@@ -1,0 +1,8 @@
+<mat-chip-list>
+  <mat-chip *ngFor="let train of trainList"
+            [selectable]="true"
+            (click)="onChipChange(train)"
+            [selected]="selectedTrain === train">
+    {{train}}
+  </mat-chip>
+</mat-chip-list>

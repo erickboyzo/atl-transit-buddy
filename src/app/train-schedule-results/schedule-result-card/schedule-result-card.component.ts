@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TrainSchedule} from '../model/train-schedule';
 
 @Component({
   selector: 'app-schedule-result-card',
@@ -14,7 +15,7 @@ export class ScheduleResultCardComponent implements OnInit {
   };
   constructor() { }
 
-  @Input() schedule: any;
+  @Input() schedule: TrainSchedule;
   @Input() firstArrival: boolean;
   @Input() refreshDate: string;
 
