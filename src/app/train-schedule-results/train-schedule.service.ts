@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {filter} from 'lodash';
 import {API_KEY} from '../app-constants';
+import {TrainSchedule} from './model/train-schedule';
 
 
 @Injectable()
@@ -19,9 +20,9 @@ export class TrainScheduleService {
     // return this.http.get(this.url);
   }
 
-  filterSchedule(primaryDirection, secondaryDirection, results, station): any[] {
-    return (filter(results, (person: any) => {
-      return (person.DIRECTION === primaryDirection || person.DIRECTION === secondaryDirection) && person.STATION === station;
+  filterSchedule(primaryDirection, secondaryDirection, results, station): TrainSchedule[] {
+    return (filter(results, (train: TrainSchedule) => {
+      return (train.DIRECTION === primaryDirection || train.DIRECTION === secondaryDirection) && train.STATION === station;
     }));
   }
 
