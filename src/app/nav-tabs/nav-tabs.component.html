@@ -4,22 +4,41 @@
       <h3>
         <i class="fa fa-subway"></i> MARTA North & South Rail</h3>
     </ng-template>
-    <app-train-schedule-results [parsedTrainStationList]="northSouthBound"
+    <app-train-schedule-results *ngIf="!serviceFailed"
+                                [parsedTrainStationList]="northSouthBound"
                                 [directions]="northSouth"></app-train-schedule-results>
+
+    <section *ngIf="serviceFailed" class="service-failed">
+      <h1><i class="fa fa-frown-o fa-2x"></i> Service Unavailable.</h1>
+      <h3>Please try again or retry at a later time.</h3>
+      <button mat-raised-button color="primary" (click)="ngOnInit()">Try Again</button>
+    </section>
+
   </mat-tab>
   <mat-tab label="East/West Bound Train">
     <ng-template mat-tab-label>
       <h3>
         <i class="fa fa-subway"></i> MARTA East & West Rail</h3>
     </ng-template>
-    <app-train-schedule-results [parsedTrainStationList]="eastWestBound"
+    <app-train-schedule-results *ngIf="!serviceFailed"
+                                [parsedTrainStationList]="eastWestBound"
                                 [directions]="eastWest"></app-train-schedule-results>
+
+    <section *ngIf="serviceFailed" class="service-failed">
+      <h1><i class="fa fa-frown-o fa-2x"></i> Service Unavailable.</h1>
+      <h3>Please try again or retry at a later time.</h3>
+      <button mat-raised-button color="primary" (click)="ngOnInit()">Try Again</button>
+    </section>
   </mat-tab>
 
-  <mat-tab label="East/West Bound Train" disabled>
+  <mat-tab label="East/West Bound Train">
     <ng-template mat-tab-label>
       <h3>
         <i class="fa fa-bus"></i> MARTA Buses</h3>
     </ng-template>
+    <section class="coming-soon">
+      <h1>Coming Soon.</h1>
+      <h3>Please check back again.</h3>
+    </section>
   </mat-tab>
 </mat-tab-group>

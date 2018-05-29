@@ -14,6 +14,7 @@ export class NavTabsComponent implements OnInit {
   eastWestBound: string[] = [];
   northSouth = null;
   eastWest = null;
+  serviceFailed = false;
 
   constructor(private trainScheduleService: TrainScheduleService, private loaderService: LoadingSpinnerService) {
   }
@@ -27,9 +28,11 @@ export class NavTabsComponent implements OnInit {
         this.northSouth = {primary: 'N', secondary: 'S'};
         this.eastWest = {primary: 'E', secondary: 'W'};
         this.loaderService.hide();
+        this.serviceFailed = false;
       },
       error => {
         this.loaderService.hide();
+        this.serviceFailed = true;
       });
   }
 
