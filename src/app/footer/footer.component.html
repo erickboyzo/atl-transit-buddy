@@ -1,2 +1,15 @@
 <footer>
+  <div layout-gt-xs="row" layout-margin>
+    <div flex-gt-xs="100">
+      <a *ngFor="let item of personalLinks"
+         mat-button routerLink="."
+         (click)="openLink(item.link)"><i
+        class="fa {{item.icon}} fa-2x"></i></a>
+    </div>
+  </div>
+  <div layout-gt-xs="row" layout-margin>
+    <div flex-gt-xs="100" class="copyright">
+      &copy; {{currentYear}}, Erick Boyzo, All rights reserved.
+    </div>
+  </div>
 </footer>
