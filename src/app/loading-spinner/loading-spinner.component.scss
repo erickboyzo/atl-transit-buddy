@@ -1,5 +1,5 @@
 .loader-overlay {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -13,4 +13,6 @@ mat-progress-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
 }

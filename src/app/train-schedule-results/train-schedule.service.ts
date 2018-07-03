@@ -14,7 +14,6 @@ export class TrainScheduleService {
   constructor(private http: HttpClient) {
   }
 
-
   getTrainSchedule() {
     return this.http.get(this.proxyurl + this.url);
     // return this.http.get(this.url);

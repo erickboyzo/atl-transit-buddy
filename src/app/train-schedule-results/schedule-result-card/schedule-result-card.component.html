@@ -3,7 +3,7 @@
     <span class="card-arrow" *ngIf="!firstArrival"><i class="fa fa-caret-left fa-5x" aria-hidden="true"></i></span>
     <h1 class="title"> {{schedule.STATION}}</h1>
   </mat-card-header>
-  <mat-card-subtitle> Last updated {{refreshDate}}</mat-card-subtitle>
+  <mat-card-subtitle><span class="bold-text">Last updated:</span> {{refreshDate}}</mat-card-subtitle>
   <mat-card-content>
     <div layout-gt-xs="row" layout-margin>
       <div flex-gt-xs="30"><span><i class="fa {{direction[schedule.DIRECTION]}} fa-5x {{schedule.LINE}}"></i></span>
