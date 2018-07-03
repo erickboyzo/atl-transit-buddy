@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
   personalLinks = [
     { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/erick-boyzo-258023a1' },
     { icon: 'fa-github', link: 'https://github.com/erickboyzo' },
@@ -20,7 +19,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-    openLink(link) {
+  openLink(link) {
     window.open(link, '_blank');
   }
 
