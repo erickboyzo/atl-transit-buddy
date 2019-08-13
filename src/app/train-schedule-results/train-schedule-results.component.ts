@@ -47,7 +47,7 @@ export class TrainScheduleResultsComponent implements OnInit {
     }
     this.trainScheduleService.getTrainSchedule()
       .subscribe(
-        data => {
+        (data:TrainSchedule[]) => {
           this.refreshDateTimeStamp = new Date().toLocaleString('en-US');
           this.scheduleResults = this.trainScheduleService.filterSchedule(
             this.directions.primary, this.directions.secondary, data, this.currentSelection);
@@ -83,5 +83,4 @@ export class TrainScheduleResultsComponent implements OnInit {
       resultsList.scrollIntoView({behavior: 'smooth'});
     });
   }
-
 }
