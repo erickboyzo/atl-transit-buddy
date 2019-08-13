@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+// Define a custom typography config that overrides the font-family
+// or any typography level.
+$typography: mat-typography-config(
+  $font-family: 'Roboto, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700)
+);
+
+@include mat-core($typography); // $typography is an **optional** argument for the mat-core
+
+
+$primary3: mat-palette($mat-blue-grey);
+$accent3: mat-palette($mat-deep-orange);
+$warn3: mat-palette($mat-red, 600);
+
+$blue-grey-deep-orange: mat-light-theme($primary3, $accent3, $warn3);
+
+@include angular-material-theme($blue-grey-deep-orange);
+@include covalent-theme($blue-grey-deep-orange);
+
+
+// Active icon color in list nav
+mat-nav-list {
+  [mat-list-item].active {
+    mat-icon[matListAvatar] {
+      background-color: mat-color($accent3);
+      color: mat-color($accent3, default-contrast)
+    }
+
+    mat-icon[matListIcon] {
+      color: mat-color($accent3);
+    }
+  }
+}

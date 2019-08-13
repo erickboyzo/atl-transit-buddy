@@ -1,7 +1,7 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
+import { Subscription } from 'rxjs/Subscription';
+import { LoadingSpinnerService } from './loading-spinner/loading-spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,7 @@ import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   showLoadingSpinner = true;
+
   private subscription: Subscription;
 
   constructor(private loaderService: LoadingSpinnerService) {

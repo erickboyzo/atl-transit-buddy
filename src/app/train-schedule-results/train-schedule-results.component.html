@@ -1,16 +1,16 @@
 <div layout-gt-xs="row" layout-margin>
   <div flex-gt-xs="20">
     <mat-button-toggle-group #group="matButtonToggleGroup" (change)="onToggleChange($event)">
-      <mat-button-toggle value="keyboard" [checked]="inputType === 'keyboard'">
+      <mat-button-toggle value="keyboard" [checked]="inputType === inputTypes.keyboard">
         <mat-icon>keyboard</mat-icon>
       </mat-button-toggle>
-      <mat-button-toggle value="chip" [checked]="inputType === 'chip'">
+      <mat-button-toggle value="chip" [checked]="inputType === inputTypes.chip">
         <mat-icon>view_comfy</mat-icon>
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
   <div flex-gt-xs="60">
-    <div *ngIf="inputType === 'keyboard'">
+    <div *ngIf="inputType === inputTypes.keyboard else chipView">
       <form class="example-form">
         <mat-form-field>
           <input type="text" placeholder="Select Station" matInput
@@ -23,9 +23,10 @@
         </mat-form-field>
       </form>
     </div>
-    <div *ngIf="inputType === 'chip'">
-      <app-train-chip-selector [trainList]="options" [selectedTrain]="currentSelection" (chipSelection)="onTrainSelection($event)"></app-train-chip-selector>
-    </div>
+    <ng-template #chipView>
+      <app-train-chip-selector [trainList]="options" [selectedTrain]="currentSelection"
+                               (chipSelection)="onTrainSelection($event)"></app-train-chip-selector>
+    </ng-template>
   </div>
 </div>
 
@@ -40,7 +41,7 @@
     </div>
     <div flex-gt-xs="20"></div>
   </div>
-  <app-no-results *ngIf="scheduleResults.length ===0"></app-no-results>
+  <app-no-results *ngIf="scheduleResults.length === 0"></app-no-results>
 </div>
 
 <span class="refresh" *ngIf="scheduleResults.length > 0">

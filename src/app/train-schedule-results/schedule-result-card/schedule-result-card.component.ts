@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TrainSchedule} from '../model/train-schedule';
+import {TrainSchedule} from '../models/train-schedule';
 
 @Component({
   selector: 'app-schedule-result-card',
