@@ -1,10 +1,12 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
-import {map, startWith} from 'rxjs/operators';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
-import {TrainScheduleService} from './train-schedule.service';
-import {LoadingSpinnerService} from '../loading-spinner/loading-spinner.service';
-import {TrainSchedule} from './model/train-schedule';
+import { Component, Input, OnInit } from '@angular/core';
+import { map, startWith } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+
+import { TrainScheduleService } from './train-schedule.service';
+import { LoadingSpinnerService } from '../loading-spinner/loading-spinner.service';
+import { TrainSchedule } from './models/train-schedule';
+import { InputType } from './models/input-type.enum';
 
 @Component({
   selector: 'app-train-schedule-results',
@@ -18,7 +20,8 @@ export class TrainScheduleResultsComponent implements OnInit {
   scheduleResults: TrainSchedule[] = [];
   currentSelection: string = null;
   refreshDateTimeStamp: string = null;
-  inputType = 'chip';
+  inputType = InputType.chip;
+  inputTypes = InputType;
 
   @Input()
   set parsedTrainStationList(data) {
@@ -75,8 +78,10 @@ export class TrainScheduleResultsComponent implements OnInit {
   }
 
   private scrollToResults() {
-    const resultsList = document.getElementById('results');
-    resultsList.scrollIntoView();
+    setTimeout(() => {
+      const resultsList = document.getElementById('results');
+      resultsList.scrollIntoView({behavior: 'smooth'});
+    });
   }
 
 }

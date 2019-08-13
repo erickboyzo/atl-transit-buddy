@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {filter} from 'lodash';
-import {API_KEY} from '../app-constants';
-import {TrainSchedule} from './model/train-schedule';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { filter } from 'lodash';
+import { API_KEY } from '../app-constants';
+import { TrainSchedule } from './models/train-schedule';
 
 
 @Injectable()
@@ -15,8 +15,8 @@ export class TrainScheduleService {
   }
 
   getTrainSchedule() {
-    return this.http.get(this.proxyurl + this.url);
-    // return this.http.get(this.url);
+    // return this.http.get(this.proxyurl + this.url);
+    return this.http.get(this.url);
   }
 
   filterSchedule(primaryDirection, secondaryDirection, results, station): TrainSchedule[] {
