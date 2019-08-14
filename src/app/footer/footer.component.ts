@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
   personalLinks = [
     { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/erick-boyzo-258023a1' },
     { icon: 'fa-github', link: 'https://github.com/erickboyzo' },
-    { icon: 'fa-code', link: 'https://bitbucket.org/erickby/marta_transit_buddy/src/master/' }
+    { icon: 'fa-code', link: 'https://github.com/erickboyzo/atl-transit-buddy' }
   ];
 
   currentYear = new Date().getFullYear();
@@ -22,5 +22,4 @@ export class FooterComponent implements OnInit {
   openLink(link) {
     window.open(link, '_blank');
   }
-
 }
