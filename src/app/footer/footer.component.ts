@@ -1,23 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
+import { footerLinks } from "../app.constants";
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
-  personalLinks = [
-    { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/erick-boyzo-258023a1' },
-    { icon: 'fa-github', link: 'https://github.com/erickboyzo' },
-    { icon: 'fa-code', link: 'https://github.com/erickboyzo/atl-transit-buddy' }
-  ];
-
+export class FooterComponent  {
+  personalLinks = footerLinks;
   currentYear = new Date().getFullYear();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   openLink(link) {
     window.open(link, '_blank');

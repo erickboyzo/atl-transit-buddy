@@ -1,11 +1,9 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class LoadingSpinnerService {
-
-
-  private spinnerSubject: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(false);
+  spinnerSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loadingSpinnerState = this.spinnerSubject.asObservable();
 
   constructor() {

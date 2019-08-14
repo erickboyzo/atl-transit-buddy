@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { headerLinks } from '../app.constants';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   appTitle = 'Atlanta Transit Helper';
+  personalLinks = headerLinks;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  openLink(link) {
+    window.open(link, '_blank');
+  }
 }

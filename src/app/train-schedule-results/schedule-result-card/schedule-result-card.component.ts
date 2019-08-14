@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TrainSchedule} from '../models/train-schedule';
+import { Component, Input, OnInit } from "@angular/core";
+import { TrainSchedule } from "../models/train-schedule";
 
 @Component({
   selector: 'app-schedule-result-card',
@@ -7,19 +7,19 @@ import {TrainSchedule} from '../models/train-schedule';
   styleUrls: ['./schedule-result-card.component.scss']
 })
 export class ScheduleResultCardComponent implements OnInit {
+  @Input() schedule: TrainSchedule;
+  @Input() firstArrival: boolean;
+  @Input() refreshDate: string;
+
   direction = {
     'N': 'fa-arrow-up',
     'S': 'fa-arrow-down',
     'W': 'fa-arrow-left',
     'E': 'fa-arrow-right',
   };
-  constructor() { }
 
-  @Input() schedule: TrainSchedule;
-  @Input() firstArrival: boolean;
-  @Input() refreshDate: string;
+  constructor() { }
 
   ngOnInit() {
   }
-
 }

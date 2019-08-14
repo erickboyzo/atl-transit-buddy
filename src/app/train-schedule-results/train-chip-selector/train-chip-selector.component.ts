@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: 'app-train-chip-selector',
@@ -6,11 +6,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./train-chip-selector.component.scss']
 })
 export class TrainChipSelectorComponent implements OnInit {
-
-  constructor() { }
   @Input() trainList: string[];
   @Input() selectedTrain: string;
   @Output() chipSelection = new EventEmitter<string>();
+
+  constructor() { }
 
   ngOnInit() {
   }
@@ -18,5 +18,4 @@ export class TrainChipSelectorComponent implements OnInit {
   onChipChange(data) {
    this.chipSelection.emit(data);
   }
-
 }

@@ -1,28 +1,37 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-
-
-import {AppComponent} from './app.component';
-import {CommonModule} from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
-  MatButtonModule, MatCardModule, MatDividerModule, MatIconModule, MatInputModule, MatListModule,
-  MatToolbarModule, MatStepperModule, MatTabsModule, MatAutocompleteModule, MatMenuModule, MatProgressSpinnerModule, MatButtonToggleModule, MatChipsModule
-} from '@angular/material';
-import {NavTabsComponent} from './nav-tabs/nav-tabs.component';
-import {FooterComponent} from './footer/footer.component';
-import {TrainScheduleResultsComponent} from './train-schedule-results/train-schedule-results.component';
-import {ScheduleResultCardComponent} from './train-schedule-results/schedule-result-card/schedule-result-card.component';
-import {TrainScheduleService} from './train-schedule-results/train-schedule.service';
-import {NoResultsComponent} from './train-schedule-results/no-results/no-results.component';
-import {HeaderComponent} from './header/header.component';
-import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
-import {LoadingSpinnerService} from './loading-spinner/loading-spinner.service';
-import { TrainChipSelectorComponent } from './train-schedule-results/train-chip-selector/train-chip-selector.component';
+  MatButtonModule,
+  MatCardModule,
+  MatDividerModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatToolbarModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatAutocompleteModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatButtonToggleModule,
+  MatChipsModule
+} from "@angular/material";
 
+import { AppComponent } from "./app.component";
+import { NavTabsComponent } from "./nav-tabs/nav-tabs.component";
+import { FooterComponent } from "./footer/footer.component";
+import { TrainScheduleResultsComponent } from "./train-schedule-results/train-schedule-results.component";
+import { ScheduleResultCardComponent } from "./train-schedule-results/schedule-result-card/schedule-result-card.component";
+import { TrainScheduleService } from "./train-schedule-results/train-schedule.service";
+import { NoResultsComponent } from "./train-schedule-results/no-results/no-results.component";
+import { HeaderComponent } from "./header/header.component";
+import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
+import { LoadingSpinnerService } from "./loading-spinner/loading-spinner.service";
+import { TrainChipSelectorComponent } from "./train-schedule-results/train-chip-selector/train-chip-selector.component";
 
 @NgModule({
   declarations: [

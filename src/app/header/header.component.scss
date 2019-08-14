@@ -2,6 +2,18 @@
   font-size: 25px;
 }
 
-.app-icon {
-  padding-right: 10px;
+.header{
+  width: 100%;
+  display: flex;
+  .header-title{
+    width: 70%;
+  }
+  .header-links{
+    display: flex;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    width: 30%;
+  }
 }
+
+

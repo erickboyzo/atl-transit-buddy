@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { TrainScheduleService } from '../train-schedule-results/train-schedule.service';
-import { filter, map, uniqBy } from 'lodash';
-import { LoadingSpinnerService } from '../loading-spinner/loading-spinner.service';
-import { TrainSchedule } from '../train-schedule-results/models/train-schedule';
+import { TrainScheduleService } from "../train-schedule-results/train-schedule.service";
+import { filter, map, uniqBy } from "lodash";
+import { LoadingSpinnerService } from "../loading-spinner/loading-spinner.service";
+import { TrainSchedule } from "../train-schedule-results/models/train-schedule";
 
 @Component({
   selector: 'app-nav-tabs',
