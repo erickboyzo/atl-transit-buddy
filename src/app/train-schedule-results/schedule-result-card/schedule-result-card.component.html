@@ -6,7 +6,9 @@
   <mat-card-subtitle><span class="bold-text">Last updated:</span> {{refreshDate}}</mat-card-subtitle>
   <mat-card-content>
     <div layout-gt-xs="row" layout-margin>
-      <div flex-gt-xs="30"><span><i class="fa {{direction[schedule.DIRECTION]}} fa-5x {{schedule.LINE}}"></i></span>
+      <div flex-gt-xs="25">
+        <div><i class="fa fa-map-signs"></i> Rail line</div>
+        <div><i class="fa {{direction[schedule.DIRECTION]}} fa-5x {{schedule.LINE}}"></i></div>
       </div>
       <div flex-gt-xs="30">
         <div><i class="fa fa-subway"></i> Destination</div>
@@ -17,7 +19,7 @@
         <h1 ngClass="{'boarding':schedule.WAITING_TIME === 'Boarding'}">{{schedule.WAITING_TIME}}</h1>
       </div>
 
-      <div flex-gt-xs="30">
+      <div flex-gt-xs="35">
         <div><i class="fa fa-clock-o"></i> Arrival time</div>
         <h1>{{schedule.NEXT_ARR}}</h1>
       </div>
