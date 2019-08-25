@@ -36,8 +36,8 @@
        ngClass="{ 'padding-left-30': !isFirst}"
        layout-margin>
     <div flex-gt-xs="60" flex-offset-xs="10">
-      <h2 class="most-recent" *ngIf="isFirst">Current</h2>
-      <h2 class="upcoming" *ngIf="idx === 1">Upcoming</h2>
+      <h2 class="most-recent" *ngIf="isFirst">Next Train</h2>
+      <h2 class="upcoming" *ngIf="idx === 1">Upcoming Trains</h2>
       <app-schedule-result-card [schedule]="item"
                                 [firstArrival]="isFirst"
                                 [refreshDate]="refreshDateTimeStamp"></app-schedule-result-card>
