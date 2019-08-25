@@ -18,8 +18,8 @@ export class TrainScheduleResultsComponent implements OnInit {
   options: string[] = [];
   filteredOptions: Observable<string[]>;
   scheduleResults: TrainSchedule[] = [];
-  currentSelection: string = null;
-  refreshDateTimeStamp: string = null;
+  currentSelection: string;
+  refreshDateTimeStamp: string;
   inputType = InputType.chip;
   inputTypes = InputType;
 
@@ -27,35 +27,41 @@ export class TrainScheduleResultsComponent implements OnInit {
   set parsedTrainStationList(data) {
     this.options = data.sort();
   }
-  @Input() directions: any;
+
+  @Input() directions: { [key: string]: string };
 
   constructor(private trainScheduleService: TrainScheduleService,
               private loaderService: LoadingSpinnerService) {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(val => this.filter(val))
-    );
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(val => this.filter(val))
+      );
   }
 
-  getSchedule(showSpinner = false) {
+  getSchedule(showSpinner: boolean = false) {
     window.scroll(0, 0);
     if (showSpinner) {
       this.loaderService.show();
     }
     this.trainScheduleService.getTrainSchedule()
       .subscribe(
-        (data:TrainSchedule[]) => {
+        (data: TrainSchedule[]) => {
           this.refreshDateTimeStamp = new Date().toLocaleString('en-US');
           this.scheduleResults = this.trainScheduleService.filterSchedule(
-            this.directions.primary, this.directions.secondary, data, this.currentSelection);
+            this.directions.primary,
+            this.directions.secondary,
+            data,
+            this.currentSelection);
+
           this.loaderService.hide();
           this.scrollToResults();
         },
         error => {
-          console.log(error);
+          console.error(error);
           this.loaderService.hide();
         });
   }
@@ -72,7 +78,7 @@ export class TrainScheduleResultsComponent implements OnInit {
     this.inputType = data.value;
   }
 
-  onTrainSelection(train) {
+  onTrainSelection(train: string) {
     this.currentSelection = train;
     this.getSchedule(true);
   }

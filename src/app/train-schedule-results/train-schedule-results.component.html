@@ -1,5 +1,6 @@
-<div layout-gt-xs="row" layout-margin>
-  <div flex-gt-xs="20">
+<div layout-gt-xs="row" layout-align="center" layout-margin>
+<!-- Use chip selection mode only.-->
+  <div flex-gt-xs="20" *ngIf="false">
     <mat-button-toggle-group #group="matButtonToggleGroup" (change)="onToggleChange($event)">
       <mat-button-toggle value="keyboard" [checked]="inputType === inputTypes.keyboard">
         <mat-icon>keyboard</mat-icon>
@@ -31,15 +32,16 @@
 </div>
 
 <div id="results" class="results">
-  <div layout-gt-xs="row" ngClass="{ 'padding-left-30': i !== 0}" *ngFor="let item of scheduleResults; let idx = index"
+  <div layout-gt-xs="row" layout-align="center" *ngFor="let item of scheduleResults; let idx = index; first as isFirst;"
+       ngClass="{ 'padding-left-30': !isFirst}"
        layout-margin>
-    <div flex-gt-xs="80" flex-offset-gt-xs="20">
-      <h2 class="most-recent" *ngIf="idx === 0">Current</h2>
+    <div flex-gt-xs="60" flex-offset-xs="10">
+      <h2 class="most-recent" *ngIf="isFirst">Current</h2>
       <h2 class="upcoming" *ngIf="idx === 1">Upcoming</h2>
-      <app-schedule-result-card [schedule]="item" [firstArrival]="idx === 0"
+      <app-schedule-result-card [schedule]="item"
+                                [firstArrival]="isFirst"
                                 [refreshDate]="refreshDateTimeStamp"></app-schedule-result-card>
     </div>
-    <div flex-gt-xs="20"></div>
   </div>
   <app-no-results *ngIf="scheduleResults.length === 0"></app-no-results>
 </div>
