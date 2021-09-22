@@ -1,5 +1,5 @@
 # Atl Transit Helper
-App can be live here
+App can be found live here:
 https://atl-transit-buddy.netlify.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
