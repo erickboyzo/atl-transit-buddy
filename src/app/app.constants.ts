@@ -4,6 +4,6 @@ export const footerLinks = [
   {icon: 'fa-code', link: 'https://github.com/erickboyzo/atl-transit-buddy'}
 ];
 
-export const headerLinks = [
+export const headerLinks:{ icon: string; link: string }[] = [
   {icon: 'fa-code', link: 'https://github.com/erickboyzo/atl-transit-buddy'}
 ];
