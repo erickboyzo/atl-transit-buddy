@@ -19,7 +19,6 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
 import { FooterComponent } from './footer/footer.component';
