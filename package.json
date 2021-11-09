@@ -26,7 +26,7 @@
     "@angular/platform-browser": "^9.1.13",
     "@angular/platform-browser-dynamic": "^9.1.13",
     "@angular/router": "^9.1.13",
-    "@covalent/core": "^2.1.0",
+    "@covalent/core": "^3.1.1",
     "axios": "^0.24.0",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
