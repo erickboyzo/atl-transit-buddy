@@ -1,8 +1,9 @@
-.app{
+.app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  .app-content{
+
+  .app-content {
     flex: 1;
   }
 }
