@@ -1,24 +1,24 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import '~@covalent/core/theming/all-theme';
 @import '~@covalent/core/common/platform.css';
 
 // Define a custom typography config that overrides the font-family
 // or any typography level.
-$typography: mat-typography-config(
+$typography: mat.define-typography-config(
   $font-family: 'Roboto, sans-serif',
-  $headline: mat-typography-level(32px, 48px, 700)
+  $headline: mat.define-typography-level(32px, 48px, 700)
 );
 
-@include mat-core($typography); // $typography is an **optional** argument for the mat-core
+@include mat.core($typography); // $typography is an **optional** argument for the mat-core
 
 
-$primary3: mat-palette($mat-blue-grey);
-$accent3: mat-palette($mat-deep-orange);
-$warn3: mat-palette($mat-red, 600);
+$primary3: mat.define-palette(mat.$blue-grey-palette);
+$accent3: mat.define-palette(mat.$deep-orange-palette);
+$warn3: mat.define-palette(mat.$red-palette, 600);
 
-$blue-grey-deep-orange: mat-light-theme($primary3, $accent3, $warn3);
+$blue-grey-deep-orange: mat.define-light-theme($primary3, $accent3, $warn3);
 
-@include angular-material-theme($blue-grey-deep-orange);
+@include mat.all-component-themes($blue-grey-deep-orange);
 @include covalent-theme($blue-grey-deep-orange);
 
 
@@ -26,12 +26,12 @@ $blue-grey-deep-orange: mat-light-theme($primary3, $accent3, $warn3);
 mat-nav-list {
   [mat-list-item].active {
     mat-icon[matListAvatar] {
-      background-color: mat-color($accent3);
-      color: mat-color($accent3, default-contrast)
+      background-color: mat.get-color-from-palette($accent3);
+      color: mat.get-color-from-palette($accent3, default-contrast)
     }
 
     mat-icon[matListIcon] {
-      color: mat-color($accent3);
+      color: mat.get-color-from-palette($accent3);
     }
   }
 }
