@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apikey = process.env.API_KEY;
-const baseApi = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals';
+const baseApi = 'https://developerservices.itsmarta.com:18096/itsmarta/railrealtimearrivals/traindata';
 
 export function handler(event, context, callback) {
 
